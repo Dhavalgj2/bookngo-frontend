@@ -1,10 +1,15 @@
 import React from "react";
-import "./NavBar.css"; // Import the CSS file
-import { Link } from "react-router";
+import "./NavBar.css";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav className="navbar">
+      <div className="nav-brand">
+        <Link to="/" className="brand-logo">
+          NGC
+        </Link>
+      </div>
       <div className="nav-items">
         <Link to="/" className="nav-link">
           Home

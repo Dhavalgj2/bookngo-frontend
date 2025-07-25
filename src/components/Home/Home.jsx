@@ -26,7 +26,7 @@ const Home = () => {
           and connection.
         </p>
         <button className="booking-button" onClick={handleBookingClick}>
-          Book your Attendance
+          Book Your Attendance
         </button>
       </section>
     </div>
