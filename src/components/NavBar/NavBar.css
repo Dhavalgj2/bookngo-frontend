@@ -4,12 +4,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  background-color: #0a2540; /* Deep navy */
-  color: #ffffff;
+  background-color: #ff3838;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.25) 2px,
+    transparent 2px
+  );
+  background-size: 30px 30px;
+  color: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Brand/Logo */
@@ -32,8 +37,11 @@
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  color: #e0e0e0;
+  color: #fff;
   transition: color 0.3s ease;
+}
+.active {
+  color: #e0e0e0;
 }
 
 .nav-link::after {
@@ -43,7 +51,7 @@
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background-color: #4ea8de; /* Accent color */
+  background-color: #fff; /* Accent color */
   transition: width 0.3s ease;
 }
 

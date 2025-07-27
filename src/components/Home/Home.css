@@ -2,10 +2,10 @@
 .home-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 60px 20px;
   background: linear-gradient(to right, #fdfbfb, #ebedee);
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 .home-container {
   overflow: auto;
@@ -20,7 +20,6 @@
 .event-intro {
   max-width: 700px;
   background: #ffffff;
-  border-radius: 12px;
   padding: 40px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -35,7 +34,7 @@
 
 .event-intro h2 {
   font-size: 1.3rem;
-  color: #0077cc;
+  color: #ff3838;
   margin-bottom: 20px;
 }
 
@@ -57,17 +56,16 @@
   padding: 14px 28px;
   font-size: 16px;
   font-weight: 600;
-  background-color: #0077cc;
+  background-color: #ff3838;
 
   color: white;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .booking-button:hover {
-  background-color: #005fa3;
+  background-color: #e27b7b;
 }
 
 /* ------------------ Responsive ------------------ */

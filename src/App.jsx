@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import OrderReview from "./components/Review/OrderReview";
 import AttendForm from "./components/AttendForm/AttendForm";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }

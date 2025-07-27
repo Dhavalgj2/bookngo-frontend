@@ -1,8 +1,12 @@
 import React from "react";
 import "./NavBar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
+  const location = useLocation();
+  const home = location.pathname === "/";
+  const login = location.pathname === "/login";
+
   return (
     <nav className="navbar">
       <div className="nav-brand">
@@ -11,10 +15,10 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="nav-items">
-        <Link to="/" className="nav-link">
+        <Link to="/" className={` ${home ? "active" : "nav-link"}`}>
           Home
         </Link>
-        <Link to="/login" className="nav-link">
+        <Link to="/login" className={` ${login ? "active" : "nav-link"}`}>
           Login
         </Link>
       </div>
