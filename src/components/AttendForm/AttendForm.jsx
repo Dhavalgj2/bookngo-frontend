@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./AttendForm.css";
 import { useNavigate } from "react-router";
+import Modal from "../Modal/Modal";
 
 const AttendForm = () => {
   const [formData, setFormData] = useState({
@@ -12,10 +13,13 @@ const AttendForm = () => {
     child5to12: 0,
     childbelow5: 0,
   });
+  const [isLoading, setIsLoading] = useState(false);
   const [showAddBtn, setShowAddBtn] = useState(true);
   const [errors, setErrors] = useState({});
-
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+
+  const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   useEffect(() => {
     setErrors({});
@@ -49,7 +53,7 @@ const AttendForm = () => {
     });
   };
 
-  const getErrors = () => {
+  const validateForm = () => {
     const errors = {};
     if (formData.firstName === "") {
       errors.firstName = "Please Enter FirstName";
@@ -64,16 +68,23 @@ const AttendForm = () => {
       errors.address = "Please Enter Address";
     }
     setErrors(errors);
-    return errors;
+    return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const errors = getErrors();
-    if (Object.keys(errors).length === 0) {
-      navigate("/review");
+    if (validateForm()) {
+      setShowModal(true); // show modal
+      setIsLoading(true);
+
+      await delay(3000);
+      setIsLoading(false);
+
+      await delay(3500);
+      navigate("/");
     }
-  };
+  }
+
   return (
     <form className="booking-form" onSubmit={handleSubmit} noValidate>
       <label>
@@ -124,7 +135,6 @@ const AttendForm = () => {
         />
         {errors.address && <span className="error-text">{errors.address}</span>}
       </label>
-      <h3>Attendance</h3>
       <div className="attendance-section">
         <div className="main-counter-sec">
           <label>Adult(s)</label>
@@ -231,6 +241,13 @@ const AttendForm = () => {
       >
         Submit Attendance
       </button>
+      {showModal && (
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          isLoading={isLoading}
+        />
+      )}
     </form>
   );
 };
