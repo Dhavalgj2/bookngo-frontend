@@ -157,6 +157,14 @@
     /* width: 40%; */
     padding: 4px;
   }
+
+  .booking-form label {
+    margin-top: 14px;
+  }
+
+  .disable-btn {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -171,7 +179,9 @@
     /* width: 40%; */
     padding: 4px;
   }
-
+  .booking-form label {
+    margin-top: 14px;
+  }
   .attendance-section {
     gap: 5px;
   }
@@ -192,6 +202,7 @@
 
   .disable-btn {
     margin-top: 17px;
+    width: 100%;
   }
   .submit-btn {
     width: 100%;
