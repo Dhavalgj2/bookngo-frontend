@@ -156,6 +156,7 @@
   .counter-wrapper {
     /* width: 40%; */
     padding: 4px;
+    height: 39px;
   }
 
   .booking-form label {
@@ -178,6 +179,7 @@
   .counter-wrapper {
     /* width: 40%; */
     padding: 4px;
+    height: 39px;
   }
   .booking-form label {
     margin-top: 14px;
