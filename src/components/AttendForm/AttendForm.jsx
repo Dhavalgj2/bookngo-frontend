@@ -95,6 +95,7 @@ const AttendForm = () => {
           name="firstName"
           value={formData.firstName}
           onChange={handleChange}
+          placeholder="Please enter FirstName"
         />
         {errors.firstName && (
           <span className="error-text">{errors.firstName}</span>
@@ -108,6 +109,7 @@ const AttendForm = () => {
           name="lastName"
           value={formData.lastName}
           onChange={handleChange}
+          placeholder="Please enter LastName"
         />
         {errors.lastName && (
           <span className="error-text">{errors.lastName}</span>
@@ -121,6 +123,7 @@ const AttendForm = () => {
           name="mobile"
           value={formData.mobile}
           onChange={handleChange}
+          placeholder="Please enter Mobile Number"
         />
         {errors.mobile && <span className="error-text">{errors.mobile}</span>}
       </label>
@@ -132,6 +135,7 @@ const AttendForm = () => {
           name="address"
           value={formData.address}
           onChange={handleChange}
+          placeholder="Please enter Address"
         />
         {errors.address && <span className="error-text">{errors.address}</span>}
       </label>

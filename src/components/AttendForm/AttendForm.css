@@ -15,8 +15,9 @@
   display: flex;
   flex-direction: column;
   font-size: 14px;
-  font-weight: 600;
-  color: #7a7878;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
 }
 
 .booking-form input[type="text"],
@@ -163,7 +164,7 @@
   .counter-wrapper {
     /* width: 40%; */
     padding: 4px;
-    height: 39px;
+    height: 45px;
   }
 
   .booking-form label {
@@ -172,6 +173,11 @@
 
   .disable-btn {
     width: 100%;
+  }
+  .submit-btn {
+    width: 100%;
+    font-size: 15px;
+    margin-top: 17px;
   }
 }
 
