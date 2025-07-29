@@ -6,6 +6,9 @@ import Login from "./components/Login/Login";
 import OrderReview from "./components/Review/OrderReview";
 import AttendForm from "./components/AttendForm/AttendForm";
 import Footer from "./components/Footer/Footer";
+import Signup from "./components/Signup/Signup";
+import AdminReview from "./components/AdminReview/AdminReview";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
@@ -17,6 +20,15 @@ function App() {
           <Route path="/attendance" element={<AttendForm />} />
           <Route path="/review" element={<OrderReview />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/admin-review"
+            element={
+              <ProtectedRoute>
+                <AdminReview />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </main>
       <Footer />

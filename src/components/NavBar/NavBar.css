@@ -4,11 +4,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  background-color: #ff3838;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.25) 2px,
-    transparent 2px
-  );
+  background-color: #e56262;
+
   background-size: 30px 30px;
   color: #fff;
   position: sticky;
@@ -36,11 +33,12 @@
   position: relative;
   text-decoration: none;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   color: #fff;
   transition: color 0.3s ease;
 }
 .active {
+  font-weight: 600;
   color: #e0e0e0;
 }
 

@@ -1,9 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [error, setError] = useState({});
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const res = await fetch("http://localhost:3000/api/check-auth", {
+        method: "GET",
+        credentials: "include",
+      });
+      const data = await res.json();
+      if (!data.authenticated) {
+        navigate("/login");
+      }
+    };
+    checkAuth();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -12,7 +28,7 @@ const Login = () => {
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
-    const newErrors = { ...error };
+    const newErrors = { ...errors };
 
     if (name === "email" && value.trim() === "") {
       newErrors.email = "Email is required.";
@@ -28,7 +44,7 @@ const Login = () => {
       delete newErrors.password;
     }
 
-    setError(newErrors);
+    setErrors(newErrors);
   };
 
   const validateForm = () => {
@@ -43,15 +59,46 @@ const Login = () => {
       errors.password = "Password is required.";
     }
 
-    setError(errors);
+    setErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log("Login submitted:", formData);
-      // perform login logic
+    if (!validateForm()) return;
+
+    try {
+      const res = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        setErrors((prev) => ({
+          ...prev,
+          server: data.message || "Login failed",
+        }));
+        return;
+      }
+
+      // ✅ Save token to localStorage
+      localStorage.setItem("token", data.token);
+
+      // ✅ Optional: Save user info if needed
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      // ✅ Redirect to admin page
+      navigate("/admin-review");
+    } catch (error) {
+      console.error("Login error:", error);
+      setErrors((prev) => ({
+        ...prev,
+        server: "An unexpected error occurred. Please try again.",
+      }));
     }
   };
 
@@ -70,7 +117,7 @@ const Login = () => {
           onBlur={handleBlur}
           placeholder="Enter your email"
         />
-        {error.email && <p className="error-message">{error.email}</p>}
+        {errors.email && <p className="error-message">{errors.email}</p>}
 
         <label htmlFor="password">Password</label>
         <input
@@ -82,11 +129,15 @@ const Login = () => {
           onBlur={handleBlur}
           placeholder="Enter your password"
         />
-        {error.password && <p className="error-message">{error.password}</p>}
-
+        {errors.password && <p className="error-message">{errors.password}</p>}
+        {errors.server && <p className="error-message">{errors.server}</p>}
         <button type="submit" className="login-btn">
           Login
         </button>
+
+        <p className="signup-text">
+          Don’t have an account? <Link to="/signup">Sign up here</Link>
+        </p>
       </form>
     </div>
   );

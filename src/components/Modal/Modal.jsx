@@ -18,7 +18,7 @@ const modal = {
   },
 };
 
-const Modal = ({ showModal, isLoading, setShowModal }) => {
+const Modal = ({ showModal, isLoading, setShowModal, closeModal }) => {
   return (
     <AnimatePresence>
       {showModal && (
@@ -39,7 +39,7 @@ const Modal = ({ showModal, isLoading, setShowModal }) => {
               <>
                 <h2>Attendance Submitted ✅</h2>
                 <p>Thank you for your submission!</p>
-                <button onClick={() => setShowModal(false)}>Close</button>
+                <button onClick={closeModal}>Close</button>
               </>
             )}
           </motion.div>

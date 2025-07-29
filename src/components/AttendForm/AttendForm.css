@@ -106,11 +106,11 @@
   background-color: #d0d0d0;
 }
 .error-border {
-  border-color: #ff3838 !important;
+  border-color: #e56262 !important;
 }
 .error-text {
   font-size: 12px;
-  color: #ff3838;
+  color: #e56262;
 }
 /* Submit Button */
 .submit-btn {
@@ -118,7 +118,7 @@
   font-size: 16px;
   font-weight: 600;
   color: #fff;
-  background-color: #ff3838;
+  background-color: #e56262;
   border: none;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -133,7 +133,7 @@
 }
 
 .add-btn {
-  background-color: #ff3838;
+  background-color: #e56262;
   color: #fff;
   padding: 12px 20px;
   width: 120px;

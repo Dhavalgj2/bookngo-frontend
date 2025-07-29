@@ -17,10 +17,9 @@ const AttendForm = () => {
   const [showAddBtn, setShowAddBtn] = useState(true);
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-
+  const navigate = useNavigate();
   useEffect(() => {
     setErrors({});
   }, []);
@@ -71,17 +70,49 @@ const AttendForm = () => {
     return Object.keys(errors).length === 0;
   };
 
+  const closeModal = () => {
+    setShowModal(false);
+  };
   async function handleSubmit(e) {
     e.preventDefault();
-    if (validateForm()) {
-      setShowModal(true); // show modal
-      setIsLoading(true);
+    if (!validateForm()) return;
 
-      await delay(3000);
+    setShowModal(true);
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:3000/attendance", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit attendance");
+      }
+
+      const result = await response.json();
+      console.log("result", result);
+
       setIsLoading(false);
-
+      setFormData({
+        firstName: "",
+        lastName: "",
+        mobile: "",
+        address: "",
+        adults: 1,
+        child5to12: 0,
+        childbelow5: 0,
+      });
       await delay(3500);
       navigate("/");
+      return result;
+    } catch (err) {
+      console.error("Error submitting attendance:", err);
+      setIsLoading(false);
+      alert("Error submitting attendance. Please try again.");
     }
   }
 
@@ -250,6 +281,7 @@ const AttendForm = () => {
           showModal={showModal}
           setShowModal={setShowModal}
           isLoading={isLoading}
+          closeModal={closeModal}
         />
       )}
     </form>
