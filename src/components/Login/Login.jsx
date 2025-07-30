@@ -9,10 +9,13 @@ const Login = () => {
 
   useEffect(() => {
     const checkAuth = async () => {
-      const res = await fetch("http://localhost:3000/api/check-auth", {
-        method: "GET",
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://bookngo-backend.onrender.com/api/check-auth",
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
       const data = await res.json();
       if (!data.authenticated) {
         navigate("/login");
@@ -68,13 +71,16 @@ const Login = () => {
     if (!validateForm()) return;
 
     try {
-      const res = await fetch("http://localhost:3000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://bookngo-backend.onrender.com/api/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await res.json();
       if (!res.ok) {

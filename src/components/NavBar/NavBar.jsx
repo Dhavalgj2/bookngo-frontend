@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
+  const [token, setToken] = useState(null);
   const [errors, setErrors] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isLoginPage = location.pathname === "/";
-  const isOnLogin = location.pathname === "/login";
+  useEffect(() => {
+    // Sync with localStorage whenever it changes
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
+  }, [location]); // re-run when route changes
 
   const logoutHandler = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/logout", {
-        method: "POST",
-        credentials: "include", // ✅ important for session logout
-      });
+      const res = await fetch(
+        "https://bookngo-backend.onrender.com/api/logout",
+        {
+          method: "POST",
+          credentials: "include",
+        }
+      );
       const data = await res.json();
       if (!res.ok) {
         setErrors((prev) => ({
@@ -26,6 +33,7 @@ const NavBar = () => {
       }
       localStorage.removeItem("token");
       localStorage.removeItem("user");
+      setToken(null); // 👈 update local state
       navigate("/login");
     } catch (error) {
       console.error("Logout error:", error);
@@ -36,6 +44,9 @@ const NavBar = () => {
     }
   };
 
+  const isLoginPage = location.pathname === "/";
+  const isOnLogin = location.pathname === "/login";
+
   return (
     <nav className="navbar">
       <div className="nav-brand">
@@ -44,11 +55,7 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="nav-items">
-        <Link to="/" className={isLoginPage ? "active" : "nav-link"}>
-          Home
-        </Link>
-
-        {!isOnLogin && (
+        {token ? (
           <span
             onClick={logoutHandler}
             className="nav-link"
@@ -56,12 +63,15 @@ const NavBar = () => {
           >
             Logout
           </span>
-        )}
-
-        {isOnLogin && (
-          <Link to="/login" className="active">
-            Login
-          </Link>
+        ) : (
+          <>
+            <Link to="/" className={isLoginPage ? "active" : "nav-link"}>
+              Home
+            </Link>
+            <Link to="/login" className={isOnLogin ? "active" : "nav-link"}>
+              Login
+            </Link>
+          </>
         )}
       </div>
     </nav>

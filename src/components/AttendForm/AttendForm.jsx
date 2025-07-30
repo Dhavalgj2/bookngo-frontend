@@ -81,13 +81,16 @@ const AttendForm = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/attendance", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://bookngo-backend.onrender.com/attendance",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to submit attendance");

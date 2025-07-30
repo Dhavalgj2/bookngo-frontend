@@ -46,13 +46,16 @@ const Signup = () => {
     e.preventDefault();
     if (!validateForm()) return;
     try {
-      const res = await fetch("http://localhost:3000/api/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://bookngo-backend.onrender.com/api/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (!res.ok) {
         setErrors("Signup failed.");
       }
