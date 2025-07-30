@@ -65,10 +65,10 @@ const NavBar = () => {
           </span>
         ) : (
           <>
-            <Link to="/" className={isLoginPage ? "active" : "nav-link"}>
+            <Link to="/" className="nav-link">
               Home
             </Link>
-            <Link to="/login" className={isOnLogin ? "active" : "nav-link"}>
+            <Link to="/login" className="nav-link">
               Login
             </Link>
           </>
