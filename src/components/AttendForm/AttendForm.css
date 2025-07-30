@@ -91,6 +91,12 @@
   margin: 0;
 }
 
+.increment {
+  color: #000;
+}
+.decrement {
+  color: #000;
+}
 .counter-wrapper button {
   width: 36px;
   height: 36px;
