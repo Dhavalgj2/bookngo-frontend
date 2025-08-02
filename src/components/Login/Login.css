@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f4f6f8;
+  background-color: #fff;
   padding: 20px;
 }
 
@@ -38,7 +38,7 @@
 .login-form button {
   width: 100%;
   padding: 12px;
-  background-color: #e56262;
+  background-color: #f99101;
   color: white;
   border: none;
   font-size: 16px;
@@ -47,7 +47,7 @@
 }
 
 .login-form button:hover {
-  background-color: #e27b7b;
+  background-color: #dfa14a;
 }
 
 .login-btn {

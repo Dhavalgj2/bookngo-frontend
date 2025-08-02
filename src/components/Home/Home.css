@@ -3,8 +3,7 @@
   display: flex;
   justify-content: center;
   padding: 60px 20px;
-  background: linear-gradient(to right, #fdfbfb, #ebedee);
-  height: 100vh;
+  height: 700px;
   overflow: hidden;
 }
 .home-container {
@@ -56,8 +55,7 @@
   padding: 14px 28px;
   font-size: 16px;
   font-weight: 600;
-  background-color: #e56262;
-
+  background-color: #f99101;
   color: white;
   border: none;
   cursor: pointer;
@@ -65,7 +63,7 @@
 }
 
 .booking-button:hover {
-  background-color: #e27b7b;
+  background-color: #dfa14a;
 }
 
 /* ------------------ Responsive ------------------ */
@@ -83,7 +81,7 @@
   }
 
   .booking-button {
-    width: 100%;
+    width: 250px;
     padding: 12px;
   }
 }

@@ -124,7 +124,7 @@
   font-size: 16px;
   font-weight: 600;
   color: #fff;
-  background-color: #e56262;
+  background-color: #f99101;
   border: none;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -139,14 +139,14 @@
 }
 
 .add-btn {
-  background-color: #e56262;
+  background-color: #f99101;
   color: #fff;
   padding: 12px 20px;
   width: 120px;
   border: none;
 }
 .submit-btn:hover {
-  background-color: #e27b7b;
+  background-color: #dfa14a;
 }
 
 /* ------------------ Responsive Styles ------------------ */

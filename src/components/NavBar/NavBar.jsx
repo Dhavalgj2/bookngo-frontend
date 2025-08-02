@@ -16,13 +16,10 @@ const NavBar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await fetch(
-        "https://bookngo-backend.onrender.com/api/logout",
-        {
-          method: "POST",
-          credentials: "include",
-        }
-      );
+      const res = await fetch("http://localhost:3000/api/logout", {
+        method: "POST",
+        credentials: "include",
+      });
       const data = await res.json();
       if (!res.ok) {
         setErrors((prev) => ({

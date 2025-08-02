@@ -6,16 +6,14 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const checkAuth = async () => {
-      const res = await fetch(
-        "https://bookngo-backend.onrender.com/api/check-auth",
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      );
+      const res = await fetch(`${API_BASE_URL}/api/check-auth`, {
+        method: "GET",
+        credentials: "include",
+      });
       const data = await res.json();
       if (!data.authenticated) {
         navigate("/login");
@@ -71,16 +69,13 @@ const Login = () => {
     if (!validateForm()) return;
 
     try {
-      const res = await fetch(
-        "https://bookngo-backend.onrender.com/api/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const res = await fetch(`${API_BASE_URL}/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       const data = await res.json();
       if (!res.ok) {

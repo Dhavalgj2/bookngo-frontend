@@ -1,41 +1,76 @@
-.summary-box {
-  background-color: #f9fafb;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  margin: 1.5rem 0;
-  border: 1px solid #e5e7eb;
-  max-width: 400px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.summary-box h2 {
-  color: #1f2937;
-  margin-bottom: 0.75rem;
-}
-
-.summary-box p {
-  font-size: 1rem;
-  color: #374151;
-  margin: 0.4rem 0;
-}
-.border-dotted {
-  border-bottom: 1px dotted grey;
-}
 .admin-container {
-  width: 500px;
-  margin: 0 auto;
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  font-family: "Segoe UI", sans-serif;
 }
-.download-excel {
-  background-color: #2563eb;
-  color: white;
+
+.admin-title {
+  font-size: 1.5rem;
   font-weight: 600;
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.summary-item span {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.summary-item strong {
+  font-size: 1.25rem;
+  color: #222;
+}
+
+.download-excel {
+  background-color: #f99101;
+  color: #ffffff;
   border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .download-excel:hover {
-  background-color: #1d4ed8;
+  background-color: #dfa14a;
+}
+
+.btn-wrapper {
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #777;
+}
+
+.error {
+  color: #d32f2f;
+  text-align: center;
+  font-weight: 500;
 }
