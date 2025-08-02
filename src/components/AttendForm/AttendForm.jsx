@@ -82,7 +82,7 @@ const AttendForm = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/attendance`, {
+      const response = await fetch(`${API_BASE_URL}attendance`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

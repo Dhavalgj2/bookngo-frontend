@@ -10,7 +10,7 @@ const Login = () => {
 
   useEffect(() => {
     const checkAuth = async () => {
-      const res = await fetch(`${API_BASE_URL}/api/check-auth`, {
+      const res = await fetch(`${API_BASE_URL}api/check-auth`, {
         method: "GET",
         credentials: "include",
       });
