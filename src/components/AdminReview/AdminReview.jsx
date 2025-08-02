@@ -32,16 +32,17 @@ const AdminReview = () => {
         if (!res.ok) throw new Error("Failed to fetch users");
         const data = await res.json();
         setUsers(data);
-
+        console.log("data", data);
         let totalA = 0;
         let totalC5to12 = 0;
         let totalCBelow5 = 0;
 
-        data.forEach(({ adults = 0, child5to12 = 0, childBelow5 = 0 }) => {
-          totalA += adults;
-          totalC5to12 += child5to12;
-          totalCBelow5 += childBelow5;
+        data.forEach((user) => {
+          totalA += Number(user.adults || 0);
+          totalC5to12 += Number(user.child5to12 || 0);
+          totalCBelow5 += Number(user.childbelow5 || 0);
         });
+        console.log("totalChildBelow5", totalCBelow5);
 
         setTotalAdults(totalA);
         setChild5to12(totalC5to12);
@@ -56,6 +57,7 @@ const AdminReview = () => {
     fetchUsers();
   }, [token]);
 
+  console.log(childBelow5);
   const downloadToExcel = () => {
     if (!users || users.length === 0) {
       alert("No user data to export.");
