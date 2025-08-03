@@ -6,7 +6,7 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  const API_BASE_URL = "https://bookngo-backend.onrender.com";
 
   useEffect(() => {
     const checkAuth = async () => {
