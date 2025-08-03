@@ -17,8 +17,9 @@ const AttendForm = () => {
   const [showAddBtn, setShowAddBtn] = useState(true);
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
+  console.log("API Base URL:", import.meta.env.VITE_API_BASE_URL);
 
-  const API_BASE_URL = "https://bookngo-backend.onrender.com";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
   const navigate = useNavigate();
@@ -83,7 +84,7 @@ const AttendForm = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/attendance`, {
+      const response = await fetch(`${API_BASE_URL}attendance`, {
         method: "POST",
         credentials: "include",
         headers: {

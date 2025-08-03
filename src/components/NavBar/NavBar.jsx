@@ -7,6 +7,7 @@ const NavBar = () => {
   const [errors, setErrors] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     // Sync with localStorage whenever it changes
@@ -16,7 +17,7 @@ const NavBar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/logout", {
+      const res = await fetch(`${API_BASE_URL}/api/logout`, {
         method: "POST",
         credentials: "include",
       });

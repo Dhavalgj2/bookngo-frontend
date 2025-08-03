@@ -6,11 +6,11 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const API_BASE_URL = "https://bookngo-backend.onrender.com";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const checkAuth = async () => {
-      const res = await fetch(`${API_BASE_URL}/api/check-auth`, {
+      const res = await fetch(`${API_BASE_URL}api/check-auth`, {
         method: "GET",
         credentials: "include",
       });

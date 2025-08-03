@@ -17,7 +17,7 @@ const AdminReview = () => {
   const [child5to12, setChild5to12] = useState(0);
   const [childBelow5, setChildBelow5] = useState(0);
   const token = localStorage.getItem("token");
-  const API_BASE_URL = "https://bookngo-backend.onrender.com";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const fetchUsers = async () => {

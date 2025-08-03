@@ -10,7 +10,7 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
-  const API_BASE_URL = "https://bookngo-backend.onrender.com";
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -59,11 +59,10 @@ const Signup = () => {
 
     setErrors({});
     try {
-      const res = await fetch(`${API_BASE_URL}/api/signup`, {
+      const res = await fetch(`${API_BASE_URL}api/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
-        credentials: "include",
       });
 
       if (!res.ok) {
