@@ -17,6 +17,7 @@ const AttendForm = () => {
   const [showAddBtn, setShowAddBtn] = useState(true);
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
+
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -82,13 +83,16 @@ const AttendForm = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}attendance`, {
+      const response = await fetch(`${API_BASE_URL}/attendance`, {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
+
+      console.log("res", response);
 
       if (!response.ok) {
         throw new Error("Failed to submit attendance");
