@@ -18,8 +18,7 @@ const AttendForm = () => {
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
+  const API_BASE_URL = "https://bookngo-backend.onrender.com";
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
   const navigate = useNavigate();
   useEffect(() => {
