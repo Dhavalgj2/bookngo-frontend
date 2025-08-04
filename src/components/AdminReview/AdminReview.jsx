@@ -22,7 +22,7 @@ const AdminReview = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}api/registration`, {
+        const res = await fetch(`${API_BASE_URL}/api/registration`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

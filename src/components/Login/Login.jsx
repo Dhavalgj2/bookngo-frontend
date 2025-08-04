@@ -10,7 +10,7 @@ const Login = () => {
 
   useEffect(() => {
     const checkAuth = async () => {
-      const res = await fetch(`${API_BASE_URL}api/check-auth`, {
+      const res = await fetch(`${API_BASE_URL}/api/check-auth`, {
         method: "GET",
         credentials: "include",
       });
@@ -69,7 +69,7 @@ const Login = () => {
     if (!validateForm()) return;
 
     try {
-      const res = await fetch(`${API_BASE_URL}api/login`, {
+      const res = await fetch(`${API_BASE_URL}/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
