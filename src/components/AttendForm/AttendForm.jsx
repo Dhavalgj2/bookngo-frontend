@@ -17,7 +17,6 @@ const AttendForm = () => {
   const [showAddBtn, setShowAddBtn] = useState(true);
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
-  console.log("API Base URL:", import.meta.env.VITE_API_BASE_URL);
 
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
