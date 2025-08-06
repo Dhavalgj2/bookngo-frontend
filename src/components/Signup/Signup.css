@@ -22,9 +22,11 @@
   color: #333;
 }
 .signup-text a {
-  color: #f99101;
+  color: #f6579e;
 }
-
+.signup-text {
+  margin-top: 8px;
+}
 .signup-form label {
   display: block;
   color: #555;
@@ -33,7 +35,7 @@
 .signup-btn {
   width: 100%;
   padding: 12px;
-  background-color: #f99101;
+  background-color: #f6579e;
   color: white;
   border: none;
   font-size: 16px;

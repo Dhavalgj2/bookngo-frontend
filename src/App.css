@@ -1,4 +1,12 @@
 .flex-grow {
-  height: 100vh;
   background-color: linear-gradient(to right, #fdfbfb, #ebedee);
+  height: 100vh;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }

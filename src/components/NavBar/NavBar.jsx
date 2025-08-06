@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import PersonIcon from "@mui/icons-material/Person";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 const NavBar = () => {
   const [token, setToken] = useState(null);
   const [errors, setErrors] = useState({});
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   const API_BASE_URL = "https://bookngo-backend.onrender.com";
 
   useEffect(() => {
-    // Sync with localStorage whenever it changes
     const storedToken = localStorage.getItem("token");
     setToken(storedToken);
-  }, [location]); // re-run when route changes
+    setMobileMenuOpen(false); // Close menu on route change
+  }, [location]);
 
   const logoutHandler = async () => {
     try {
@@ -32,7 +37,7 @@ const NavBar = () => {
       }
       localStorage.removeItem("token");
       localStorage.removeItem("user");
-      setToken(null); // 👈 update local state
+      setToken(null);
       navigate("/login");
     } catch (error) {
       console.error("Logout error:", error);
@@ -43,8 +48,12 @@ const NavBar = () => {
     }
   };
 
-  const isLoginPage = location.pathname === "/";
-  const isOnLogin = location.pathname === "/login";
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen((prev) => !prev);
+  };
+
+  const isHome = location.pathname === "/";
+  const isLogin = location.pathname === "/login";
 
   return (
     <nav className="navbar">
@@ -53,7 +62,12 @@ const NavBar = () => {
           NGC
         </Link>
       </div>
-      <div className="nav-items">
+
+      <div className="menu-icon" onClick={toggleMobileMenu}>
+        {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+      </div>
+
+      <div className={`nav-items ${mobileMenuOpen ? "show" : ""}`}>
         {token ? (
           <span
             onClick={logoutHandler}
@@ -64,11 +78,17 @@ const NavBar = () => {
           </span>
         ) : (
           <>
-            <Link to="/" className="nav-link">
-              Home
+            <Link to="/" className={`nav-link ${isHome ? "active" : ""}`}>
+              <span className="desktop">Home</span>
+              <span className="mobile">
+                <HomeIcon />
+              </span>
             </Link>
-            <Link to="/login" className="nav-link">
-              Login
+            <Link to="/login" className={`nav-link ${isLogin ? "active" : ""}`}>
+              <span className="desktop">Login</span>
+              <span className="mobile">
+                <PersonIcon />
+              </span>
             </Link>
           </>
         )}

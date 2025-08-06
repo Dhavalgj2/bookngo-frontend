@@ -12,7 +12,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
-    <div className="">
+    <>
       <NavBar />
       <main className="flex-grow">
         <Routes>
@@ -32,7 +32,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
 
