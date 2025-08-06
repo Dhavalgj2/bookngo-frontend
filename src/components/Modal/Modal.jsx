@@ -3,6 +3,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Modal.css";
 import LoadingSpinner from "../Spinner/LoadingSpinner";
+import { useEffect } from "react";
 
 const backdrop = {
   visible: { opacity: 1 },
@@ -10,15 +11,37 @@ const backdrop = {
 };
 
 const modal = {
-  hidden: { y: "-100vh", opacity: 0 },
+  hidden: { opacity: 0, scale: 0.9 },
   visible: {
-    y: "100px",
     opacity: 1,
-    transition: { delay: 0.3 },
+    scale: 1,
+    transition: { duration: 0.3 },
   },
 };
 
 const Modal = ({ showModal, isLoading, closeModal, message }) => {
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+    document.addEventListener("keydown", handleEsc);
+    return () => document.removeEventListener("keydown", handleEsc);
+  }, [closeModal]);
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showModal]);
+
   return (
     <AnimatePresence>
       {showModal && (
@@ -28,6 +51,7 @@ const Modal = ({ showModal, isLoading, closeModal, message }) => {
           initial="hidden"
           animate="visible"
           exit="hidden"
+          onClick={closeModal} // clicking backdrop closes modal
         >
           <motion.div className="modal-content" variants={modal}>
             {isLoading ? (
