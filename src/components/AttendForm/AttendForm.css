@@ -162,8 +162,9 @@
 
   .booking-form {
     width: 100%;
+    margin: 35px;
     /* padding: 16px;
-    margin: 20px; */
+  */
   }
   .main-counter-sec {
     flex: 0;
