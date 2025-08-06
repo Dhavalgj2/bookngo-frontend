@@ -66,4 +66,7 @@
     max-width: 345px;
     border: 4px solid #ddd9d9;
   }
+  .login-container {
+    height: 595px;
+  }
 }

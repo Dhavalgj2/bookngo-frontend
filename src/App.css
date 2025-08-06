@@ -1,11 +1,18 @@
 .main-container {
   background-color: linear-gradient(to right, #fdfbfb, #ebedee);
-  flex-grow: 1;
   overflow: auto;
+  flex-grow: 1;
 }
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .main-container {
+    flex-grow: 0 !important;
+  }
 }

@@ -58,4 +58,7 @@
   .signup-form {
     max-width: 345px;
   }
+  .signup-container {
+    height: 595px;
+  }
 }
