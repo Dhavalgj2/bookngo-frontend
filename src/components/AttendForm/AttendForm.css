@@ -7,7 +7,7 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
 }
 
 /* Labels & Inputs */
@@ -161,8 +161,9 @@
   }
 
   .booking-form {
-    padding: 16px;
-    margin: 20px;
+    width: 100%;
+    /* padding: 16px;
+    margin: 20px; */
   }
   .main-counter-sec {
     flex: 0;

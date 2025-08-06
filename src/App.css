@@ -1,7 +1,11 @@
 .main-container {
-  background-color: linear-gradient(to right, #fdfbfb, #ebedee);
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
   overflow: auto;
-  flex-grow: 1;
+  min-height: calc(100vh - 170px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .app-container {
   display: flex;
