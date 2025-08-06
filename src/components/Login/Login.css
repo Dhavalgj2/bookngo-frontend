@@ -63,6 +63,7 @@
 @media screen and (max-width: 600px) {
   .login-form {
     padding: 1rem;
+    max-width: 345px;
     border: 4px solid #ddd9d9;
   }
 }

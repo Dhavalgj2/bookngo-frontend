@@ -1,7 +1,9 @@
+html,
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
   color: #7a7878;
   margin: 0;
-  overflow: scroll;
+  height: 100vh;
+  overflow: hidden;
 }

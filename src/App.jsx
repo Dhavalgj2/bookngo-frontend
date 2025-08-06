@@ -12,9 +12,9 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
-    <>
+    <div className="app-container">
       <NavBar />
-      <main className="flex-grow">
+      <main className="main-container">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/attendance" element={<AttendForm />} />
@@ -32,7 +32,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   background: linear-gradient(to right, #f9f9f9, #e0e0e0);
   padding: 20px;
+  height: 100%;
 }
 
 .signup-form {
@@ -52,4 +52,10 @@
   border: 1px solid #ccc;
   font-size: 14px;
   transition: border 0.3s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .signup-form {
+    max-width: 345px;
+  }
 }

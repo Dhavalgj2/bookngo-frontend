@@ -1,12 +1,11 @@
-.flex-grow {
+.main-container {
   background-color: linear-gradient(to right, #fdfbfb, #ebedee);
-  height: 100vh;
+  flex-grow: 1;
+  overflow: auto;
 }
-html,
-body,
-#root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
 }

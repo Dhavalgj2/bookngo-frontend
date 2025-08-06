@@ -92,7 +92,7 @@
 
   .nav-items {
     position: absolute;
-    top: 94px; /* Adjust based on navbar height */
+    top: 87px; /* Adjust based on navbar height */
     right: -100%;
     width: 100%;
     background-color: #3e2c90;

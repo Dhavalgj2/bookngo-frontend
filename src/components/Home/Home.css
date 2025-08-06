@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   padding: 60px 20px;
-  height: 700px;
+  height: 590px;
   overflow: hidden;
 }
 .home-container {
@@ -73,7 +73,10 @@
   .event-intro {
     padding: 24px;
   }
-
+  .home-container {
+    padding: 40px 20px;
+    height: 560px;
+  }
   .event-intro h1 {
     font-size: 1.6rem;
   }
